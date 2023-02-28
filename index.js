@@ -18,6 +18,19 @@ const defaultAxeOptions = {
 }
 
 class A11yHelper extends Helper {
+
+    /**
+     * Run a11y check
+     * @param  {Object} opts The options data
+     * @param  {String}  opts.context    context to check against
+     * @param  {object}  opts.axeOptions    axe options
+     * @param  {boolean}  opts.detailedReport    detailed report
+     * @param  {object}  opts.detailedReportOptions    detailed report options
+     * @param  {boolean}  opts.skipFailures    skip failures
+     * @param  {String}  opts.reporter   reporter type
+     * @param  {String}  opts.outputDir   output folder
+     * @param  {String}  opts.reportFileName   report name
+     */
     async runA11yCheck(opts = {context: null, axeOptions: defaultAxeOptions, detailedReport: true, detailedReportOptions: { html: true }, skipFailures: true, reporter: 'html', outputDir: 'output', reportFileName: 'accessibility-audit.html'}) {
         if (!this['helpers'].Playwright) throw Error('Accessibility Tests only support with Playwright - Chromium at the momment.')
         const { page } = this['helpers'].Playwright;
