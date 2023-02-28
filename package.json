@@ -30,7 +30,7 @@
   "release": { "branches": [ "main" ] },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kobenguyent/codeceptjs-a11y-helper.git"
+    "url": "git@github.com:kobenguyent/codeceptjs-a11y-helper.git"
   },
   "bugs": {
     "url": "https://github.com/kobenguyent/codeceptjs-a11y-helper/issues"
