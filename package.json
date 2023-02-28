@@ -28,5 +28,13 @@
     "index.ts",
     "README.md"
   ],
-  "release": { "branches": [ "main" ] }
+  "release": { "branches": [ "main" ] },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kobenguyent/codeceptjs-a11y-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kobenguyent/codeceptjs-a11y-helper/issues"
+  },
+  "homepage": "https://github.com/kobenguyent/codeceptjs-a11y-helper#readme"
 }
