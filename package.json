@@ -27,5 +27,6 @@
   "files": [
     "index.ts",
     "README.md"
-  ]
+  ],
+  "release": { "branches": [ "main" ] }
 }
