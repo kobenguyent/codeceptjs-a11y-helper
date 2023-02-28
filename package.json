@@ -2,7 +2,7 @@
   "name": "codeceptjs-a11y-helper",
   "version": "1.0.0",
   "description": "Accessibility Testing Helper for codeceptjs",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -24,7 +24,7 @@
     "typescript": "^4.9.5"
   },
   "files": [
-    "index.ts",
+    "index.js",
     "README.md"
   ],
   "release": { "branches": [ "main" ] },

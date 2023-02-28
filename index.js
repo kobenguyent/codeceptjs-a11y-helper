@@ -1,5 +1,5 @@
-import Helper from "@codeceptjs/helper";
-import {checkA11y, injectAxe} from "axe-playwright";
+const Helper = require("@codeceptjs/helper");
+const {checkA11y, injectAxe} = require("axe-playwright");
 const defaultAxeOptions = {
     runOnly: {
         type: 'tag',
@@ -18,12 +18,11 @@ const defaultAxeOptions = {
 }
 
 class A11yHelper extends Helper {
-
     async runA11yCheck(opts = {context: null, axeOptions: defaultAxeOptions, detailedReport: true, detailedReportOptions: { html: true }, skipFailures: true, reporter: 'html', outputDir: 'output', reportFileName: 'accessibility-audit.html'}) {
-        if (this['helpers'].Playwright) throw Error('Accessibility Tests only support with Playwright - Chromium at the momment.')
+        if (!this['helpers'].Playwright) throw Error('Accessibility Tests only support with Playwright - Chromium at the momment.')
         const { page } = this['helpers'].Playwright;
 
-        const _axeOptions:any = {...defaultAxeOptions, ...opts.axeOptions}
+        const _axeOptions = {...defaultAxeOptions, ...opts.axeOptions}
 
         await injectAxe(page)
         await checkA11y(page, opts.context, {
@@ -31,13 +30,11 @@ class A11yHelper extends Helper {
                 detailedReport: opts.detailedReport,
                 detailedReportOptions: opts.detailedReportOptions,
             },
-            // @ts-ignore
             opts.skipFailures, opts.reporter, {
                 outputDir: opts.outputDir,
                 reportFileName: opts.reportFileName
             })
     }
-
 }
 
-export = A11yHelper
+module.exports = A11yHelper
