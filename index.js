@@ -44,11 +44,12 @@ class A11yHelper extends Helper {
    * @param  {String}  opts.reportFileName   report name
    */
   async runA11yCheck(opts) {
-    if (!this['helpers'].Playwright)
+    const playwright = this['helpers']['Playwright'];
+    if (!playwright)
       throw Error(
-        'Accessibility Tests only support with Playwright - Chromium at the momment.'
+        'Accessibility Tests only support with Playwright - Chromium at the moment.'
       );
-    const { page } = this['helpers'].Playwright;
+    const { page } = playwright;
 
     const _opts = { ...defaultRunA11YOpts, ...opts };
 
