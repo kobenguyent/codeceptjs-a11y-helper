@@ -1,53 +1,75 @@
-const Helper = require("@codeceptjs/helper");
-const {checkA11y, injectAxe} = require("axe-playwright");
+const Helper = require('@codeceptjs/helper');
+const { checkA11y, injectAxe } = require('axe-playwright');
 const defaultAxeOptions = {
-    runOnly: {
-        type: 'tag',
-        values: ['wcag2a',
-            'wcag2aa',
-            'wcag2aaa',
-            'wcag21a',
-            'wcag21aa',
-            'wcag22aa',
-            'best-practice',
-            'wcag***',
-            'ACT',
-            'experimental',
-            'cat.*',],
-    },
-}
+  runOnly: {
+    type: 'tag',
+    values: [
+      'wcag2a',
+      'wcag2aa',
+      'wcag2aaa',
+      'wcag21a',
+      'wcag21aa',
+      'wcag22aa',
+      'best-practice',
+      'wcag***',
+      'ACT',
+      'experimental',
+      'cat.*',
+    ],
+  },
+};
+
+const defaultRunA11YOpts = {
+  context: null,
+  axeOptions: defaultAxeOptions,
+  detailedReport: true,
+  detailedReportOptions: { html: true },
+  skipFailures: true,
+  reporter: 'html',
+  outputDir: 'output',
+  reportFileName: 'accessibility-audit.html',
+};
 
 class A11yHelper extends Helper {
+  /**
+   * Run a11y check
+   * @param  {Object} opts The options data
+   * @param  {String}  opts.context    context to check against
+   * @param  {object}  opts.axeOptions    axe options
+   * @param  {boolean}  opts.detailedReport    detailed report
+   * @param  {object}  opts.detailedReportOptions    detailed report options
+   * @param  {boolean}  opts.skipFailures    skip failures
+   * @param  {String}  opts.reporter   reporter type
+   * @param  {String}  opts.outputDir   output folder
+   * @param  {String}  opts.reportFileName   report name
+   */
+  async runA11yCheck(opts) {
+    if (!this['helpers'].Playwright)
+      throw Error(
+        'Accessibility Tests only support with Playwright - Chromium at the momment.'
+      );
+    const { page } = this['helpers'].Playwright;
 
-    /**
-     * Run a11y check
-     * @param  {Object} opts The options data
-     * @param  {String}  opts.context    context to check against
-     * @param  {object}  opts.axeOptions    axe options
-     * @param  {boolean}  opts.detailedReport    detailed report
-     * @param  {object}  opts.detailedReportOptions    detailed report options
-     * @param  {boolean}  opts.skipFailures    skip failures
-     * @param  {String}  opts.reporter   reporter type
-     * @param  {String}  opts.outputDir   output folder
-     * @param  {String}  opts.reportFileName   report name
-     */
-    async runA11yCheck(opts = {context: null, axeOptions: defaultAxeOptions, detailedReport: true, detailedReportOptions: { html: true }, skipFailures: true, reporter: 'html', outputDir: 'output', reportFileName: 'accessibility-audit.html'}) {
-        if (!this['helpers'].Playwright) throw Error('Accessibility Tests only support with Playwright - Chromium at the momment.')
-        const { page } = this['helpers'].Playwright;
+    const _opts = { ...defaultRunA11YOpts, ...opts };
 
-        const _axeOptions = {...defaultAxeOptions, ...opts.axeOptions}
+    await injectAxe(page);
 
-        await injectAxe(page)
-        await checkA11y(page, opts.context, {
-                axeOptions: _axeOptions,
-                detailedReport: opts.detailedReport,
-                detailedReportOptions: opts.detailedReportOptions,
-            },
-            opts.skipFailures, opts.reporter, {
-                outputDir: opts.outputDir,
-                reportFileName: opts.reportFileName
-            })
-    }
+    await checkA11y(
+      page,
+      _opts.context,
+      {
+        axeOptions: _opts.axeOptions,
+        detailedReport: _opts.detailedReport,
+        detailedReportOptions: _opts.detailedReportOptions,
+      },
+      _opts.skipFailures,
+      _opts.reporter,
+      {
+        outputDir: _opts.outputDir,
+        reportFileName: _opts.reportFileName,
+      }
+    );
+  }
 }
 
-module.exports = A11yHelper
+module.exports = A11yHelper;

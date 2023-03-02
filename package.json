@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install",
+    "code:format": "prettier --write ."
   },
   "keywords": [
     "codeceptjs",
@@ -21,13 +23,20 @@
     "@typescript-eslint/parser": "^5.54.0",
     "eslint": "^8.35.0",
     "flowmatic-cicd": "^1.2.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "2.8.4",
     "typescript": "^4.9.5"
   },
   "files": [
     "index.js",
     "README.md"
   ],
-  "release": { "branches": [ "main" ] },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:kobenguyent/codeceptjs-a11y-helper.git"
@@ -36,5 +45,8 @@
     "url": "https://github.com/kobenguyent/codeceptjs-a11y-helper/issues"
   },
   "homepage": "https://github.com/kobenguyent/codeceptjs-a11y-helper#readme",
-  "author": "Thanh Nguyen <kobenguyent@gmail.com>"
+  "author": "Thanh Nguyen <kobenguyent@gmail.com>",
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }
