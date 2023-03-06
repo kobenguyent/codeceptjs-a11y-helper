@@ -73,7 +73,8 @@ More info could be found [here](https://www.npmjs.com/package/axe-playwright)
    helpers: {
      A11yHelper: {
       require: 'codeceptjs-a11y-helper',
-      { outputDir: 'hello'}
+      outputDir: 'hello',
+      reportFileName: 'a11y-audit.html'
     }
    }
 ...
