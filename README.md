@@ -36,7 +36,8 @@ Example:
 
 ### Options
 
-By default, this setting is enabled:
+By default, this setting is enabled, you can either input those settings in config file or `runA11yCheck()`, precedence is as followed:
+defaults settings, settings in config, settings from `runA11yCheck()`
 
 - context: null,
 - axeOptions: `{
@@ -63,6 +64,23 @@ values: ['wcag2a',
 - reportFileName: 'accessibility-audit.html'
 
 More info could be found [here](https://www.npmjs.com/package/axe-playwright)
+
+- Within config file:
+
+```
+{
+...
+   helpers: {
+     A11yHelper: {
+      require: 'codeceptjs-a11y-helper',
+      { outputDir: 'hello'}
+    }
+   }
+...
+}
+```
+
+- From `runA11yCheck()`:
 
 ```
 Feature('A11Y Check');

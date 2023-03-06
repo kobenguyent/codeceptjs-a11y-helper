@@ -51,7 +51,9 @@ class A11yHelper extends Helper {
       );
     const { page } = playwright;
 
-    const _opts = { ...defaultRunA11YOpts, ...opts };
+    const a11yHelper = this['helpers']['A11yHelper'];
+
+    const _opts = { ...defaultRunA11YOpts, ...a11yHelper.config, ...opts };
 
     await injectAxe(page);
 
