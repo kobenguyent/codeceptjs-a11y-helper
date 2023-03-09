@@ -65,6 +65,8 @@ values: ['wcag2a',
 
 More info could be found [here](https://www.npmjs.com/package/axe-playwright)
 
+_Note:_ If you pass `skipFailures=false`, test would fail if violations found and there is no HTML report generated.
+
 - Within config file:
 
 ```

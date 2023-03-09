@@ -55,6 +55,10 @@ class A11yHelper extends Helper {
 
     const _opts = { ...defaultRunA11YOpts, ...a11yHelper.config, ...opts };
 
+    if (_opts.skipFailures === false) {
+      _opts.reporter = 'default';
+    }
+
     await injectAxe(page);
 
     await checkA11y(
