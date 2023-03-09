@@ -4,7 +4,7 @@
   "description": "Accessibility Testing Helper for codeceptjs",
   "main": "index.ts",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
     "code:format": "prettier --write ."

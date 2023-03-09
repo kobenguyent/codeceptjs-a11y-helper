@@ -43,7 +43,7 @@ class A11yHelper extends Helper {
    * @param  {String}  opts.outputDir   output folder
    * @param  {String}  opts.reportFileName   report name
    */
-  async runA11yCheck(opts) {
+  async runA11yCheck(opts?) {
     const playwright = this['helpers']['Playwright'];
     if (!playwright)
       throw Error(
@@ -79,4 +79,4 @@ class A11yHelper extends Helper {
   }
 }
 
-export = A11yHelper;
+module.exports = A11yHelper;
