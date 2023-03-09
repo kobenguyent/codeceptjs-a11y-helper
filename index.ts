@@ -1,4 +1,4 @@
-const Helper = require('@codeceptjs/helper');
+const { Helper } = require('codeceptjs');
 const { checkA11y, injectAxe } = require('axe-playwright');
 const defaultAxeOptions = {
   runOnly: {
@@ -79,4 +79,4 @@ class A11yHelper extends Helper {
   }
 }
 
-module.exports = A11yHelper;
+export = A11yHelper;
