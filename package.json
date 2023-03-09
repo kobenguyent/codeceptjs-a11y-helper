@@ -2,13 +2,12 @@
   "name": "codeceptjs-a11y-helper",
   "version": "1.0.0",
   "description": "Accessibility Testing Helper for codeceptjs",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
-    "code:format": "prettier --write .",
-    "tsc": "tsc index.ts"
+    "code:format": "prettier --write ."
   },
   "keywords": [
     "codeceptjs",
@@ -30,7 +29,7 @@
     "typescript": "^4.9.5"
   },
   "files": [
-    "index.js",
+    "index.ts",
     "index.d.ts",
     "README.md"
   ],
