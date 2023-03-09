@@ -7,7 +7,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky install",
-    "code:format": "prettier --write ."
+    "code:format": "prettier --write .",
+    "tsc": "tsc index.ts"
   },
   "keywords": [
     "codeceptjs",
