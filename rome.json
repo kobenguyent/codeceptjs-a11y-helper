@@ -5,7 +5,7 @@
     "indentSize": 4,
     "indentStyle": "tab",
     "lineWidth": 120,
-    "ignore": [".gitingore", "*.json"]
+    "ignore": [".gitingore", "*.json", ".github/workflows/npm-publish.yml"]
   },
   "linter": {
     "enabled": true,
