@@ -1,6 +1,5 @@
 import { checkA11y, injectAxe } from "axe-playwright";
 import { Helper } from "codeceptjs";
-import { axeOptionsConfig } from "axe-playwright/dist/types";
 const defaultAxeOptions = {
 	runOnly: {
 		type: "tag",
@@ -43,13 +42,22 @@ type options = {
 };
 
 class A11yHelper extends Helper {
+	/**
+	 * Run a11y check
+	 * @param  {options} opts - The options data
+	 * @param  {String}  opts.context - context to check against
+	 * @param  {object}  opts.axeOptions - axe options
+	 * @param  {boolean}  opts.detailedReport - show detailed report
+	 * @param  {object}  opts.detailedReportOptions - detailed report options
+	 * @param  {boolean}  opts.skipFailures - skip failures
+	 * @param  {String}  opts.reporter - reporter type
+	 * @param  {String}  opts.outputDir - output folder
+	 * @param  {String}  opts.reportFileName - report name
+	 */
 	async runA11yCheck(opts?: options) {
-		// @ts-ignore
 		const playwright = this["helpers"]["Playwright"];
 		if (!playwright) throw Error("Accessibility Tests only support with Playwright - Chromium at the moment.");
 		const { page } = playwright;
-
-		// @ts-ignore
 		const a11yHelper = this["helpers"]["A11yHelper"];
 
 		const _opts = { ...defaultRunA11YOpts, ...a11yHelper.config, ...opts };

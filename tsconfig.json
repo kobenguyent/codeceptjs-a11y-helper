@@ -8,7 +8,7 @@
     "strict": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "removeComments": true,
+    "removeComments": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "rootDir": "./src",
@@ -16,7 +16,8 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "compileOnSave": false
 }
