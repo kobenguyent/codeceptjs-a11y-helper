@@ -111,3 +111,5 @@ HTML report was saved into the following directory /Users/kobenguyent/Desktop/co
   OK  | 1 passed   // 7s
 
 ```
+![Screenshot 2023-06-16 at 17 33 22](https://github.com/kobenguyent/codeceptjs-a11y-helper/assets/7845001/538830b5-c770-4a90-b0f9-c7da01802c4a)
+
