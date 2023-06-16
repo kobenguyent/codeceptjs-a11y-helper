@@ -68,7 +68,7 @@ class A11yHelper extends Helper {
 
 		const { page } = Playwright;
 		const _opts = { ...defaultRunA11YOpts, ...A11yHelper.config, ...opts };
-		fileName = Date.now().toString() + "_" + _opts.reportFileName;
+		fileName = `${Date.now().toString()}_${_opts.reportFileName}`;
 
 		if (_opts.skipFailures === false) {
 			_opts.reporter = "default";
