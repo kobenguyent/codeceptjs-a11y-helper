@@ -32,7 +32,7 @@ Example:
 
 - To use this helper, you must enable Playwright helper.
 - After install the helper, you can use it by calling `I.runA11yCheck()`
-- If there is auto complete for I actor, try running `npx codeceptjs def`
+- If there is auto complete for actor I, try running `npx codeceptjs def`
 
 ### Options
 
@@ -88,7 +88,7 @@ _Note:_ If you pass `skipFailures=false`, test would fail if violations found an
 ```
 Feature('A11Y Check');
 
-Scenario.only('a11y check',  async ({ I }) => {
+Scenario('a11y check',  async ({ I }) => {
     I.amOnPage('https://js.devexpress.com/Demos/WidgetsGallery/Demo/Slider/Overview/jQuery/Light/')
     await I.runA11yCheck({ outputDir: 'hello'})
 });
