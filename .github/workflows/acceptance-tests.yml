@@ -43,6 +43,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+      - name: install deps
+        run: |
+          npm i
       - name: Run tests
         working-directory: ./test
         run: |
