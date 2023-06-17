@@ -4,6 +4,8 @@
 
 CodeceptJS Accessibility helper wraps on top of [axe-playwright](https://www.npmjs.com/package/axe-playwright) to perform a11y check against your web application.
 
+Allure reports: https://kobenguyent.github.io/codeceptjs-a11y-helper/#
+
 NPM package: <https://www.npmjs.com/package/codeceptjs-a11y-helper>
 
 ## Installation
