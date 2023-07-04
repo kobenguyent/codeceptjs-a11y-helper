@@ -16,7 +16,7 @@
     "allure-codeceptjs": "^2.4.0",
     "allure-commandline": "^2.22.1",
     "allure-patch": "^1.0.3",
-    "codeceptjs": "^3.4.1",
+    "codeceptjs": "^3.5.0",
     "axe-playwright": "^1.2.3"
   },
   "devDependencies": {
