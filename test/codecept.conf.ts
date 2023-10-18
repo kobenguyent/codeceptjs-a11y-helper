@@ -19,7 +19,7 @@ export const config: CodeceptJS.MainConfig = {
 	plugins: {
 		allure: {
 			enabled: true,
-			require: "@codeceptjs/allure-legacy",
+			require: "allure-codeceptjs",
 			outputDir: "./output",
 		},
 	},
