@@ -49,7 +49,7 @@ jobs:
       - name: Run tests
         working-directory: ./test
         run: |
-          npm i
+          npm i && npx playwright install
           npm run test && npm run allure-reports-generate && npm run allure-reports-patch
         env:
           MAILINATOR_TOKEN: ${{secrets.MAILINATOR_TOKEN}}
