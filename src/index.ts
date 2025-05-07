@@ -112,13 +112,13 @@ class A11yHelper extends Helper {
 			await this._attachArtifacts(test);
 		}
 	}
-	
+
 	_handleArtifacts(test: Mocha.Test) {
-	        if (fileName && outputDir) {
-	            (test.artifacts as any).a11yReports = resolve(outputDir, fileName);
+		if (fileName && outputDir) {
+			(test.artifacts as any).a11yReports = resolve(outputDir, fileName);
 		}
 	}
-	
+
 	private async _attachArtifacts(test: Mocha.Test): Promise<void> {
 		const timeString: string = Date.now().toString();
 		const FORMAT: string = "application/zip";
