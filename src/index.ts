@@ -99,7 +99,7 @@ class A11yHelper extends Helper {
 
 	async _failed(test: Mocha.Test) {
 		await this.helpers.Playwright.browserContext.close();
-		(test.artifacts as any).a11yReports = resolve(outputDir, fileName);
+		this._handleArtifacts(test);
 		if (allure) {
 			await this._attachArtifacts(test);
 		}
@@ -107,12 +107,18 @@ class A11yHelper extends Helper {
 
 	async _passed(test: Mocha.Test) {
 		await this.helpers.Playwright.browserContext.close();
-		(test.artifacts as any).a11yReports = resolve(outputDir, fileName);
+		this._handleArtifacts(test);
 		if (allure) {
 			await this._attachArtifacts(test);
 		}
 	}
-
+	
+	_handleArtifacts(test: Mocha.Test) {
+	        if (fileName && outputDir) {
+	            (test.artifacts as any).a11yReports = resolve(outputDir, fileName);
+		}
+	}
+	
 	private async _attachArtifacts(test: Mocha.Test): Promise<void> {
 		const timeString: string = Date.now().toString();
 		const FORMAT: string = "application/zip";
