@@ -1,6 +1,7 @@
 export const config: CodeceptJS.MainConfig = {
 	tests: "./*_test.ts",
 	output: "./output",
+	emptyOutputFolder: true,
 	helpers: {
 		Playwright: {
 			url: "https://js.devexpress.com/Demos/WidgetsGallery/Demo/Slider/Overview/jQuery/Light",
@@ -20,7 +21,7 @@ export const config: CodeceptJS.MainConfig = {
 		allure: {
 			enabled: true,
 			require: "allure-codeceptjs",
-			outputDir: "./output",
+			resultsDir: "./output",
 		},
 	},
 };
