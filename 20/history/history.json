@@ -1,0 +1,1 @@
+{"43fc01bda23d33ab55462325487fec56:d41d8cd98f00b204e9800998ecf8427e":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"5f0c56bc2109f3d7","reportUrl":"https://kobenguyent.github.io/codeceptjs-a11y-helper/20//#testresult/5f0c56bc2109f3d7","status":"passed","time":{"start":1747829852416,"stop":1747829858023,"duration":5607}}]}}
