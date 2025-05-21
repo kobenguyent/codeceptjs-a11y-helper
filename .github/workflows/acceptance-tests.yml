@@ -2,9 +2,8 @@ name: Acceptance Tests
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches-ignore:
+      - '!master' # ignore gh-pages
 
 env:
   NODE_VERSION: 22
