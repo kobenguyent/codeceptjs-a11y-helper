@@ -8,7 +8,7 @@
     "lint:fix": "rome check src --apply-suggested",
     "prepare": "husky install",
     "code:format": "rome format src --write",
-    "tsc": "tsc -d"
+    "compile": "tsc -d"
   },
   "keywords": [
     "codeceptjs",
